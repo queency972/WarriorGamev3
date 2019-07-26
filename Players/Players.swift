@@ -67,10 +67,10 @@ class Player {
         if let choice = readLine() {
             switch choice {
             case "1":
-                if team == 1 { print("\nOK ✅, \(team1[0].typeCharacters) valided !");
+                if team == 1 { print("\nOK ✅, \(team1[0].typeCharacters) valided !"); Character.tresor()
                     if team1[0].weapon.givePoint == true { Magus.careTeam(team: team) }}
                 else {
-                    print("\nOK ✅, \(team2[0].typeCharacters) valided !");
+                    print("\nOK ✅, \(team2[0].typeCharacters) valided !"); Character.tresor()
                     if team2[0].weapon.givePoint == true { Magus.careTeam(team: team) }}
                 repeat {
                     if team == 1 { print("Which warrior you want fight ? 🥊🥊🥊\n")
@@ -91,10 +91,10 @@ class Player {
                 case 3: team2[0].attack(target: team1[2])
                 default: print("⁉️ Please, enter a value between 1 to 3.\n") }}
             case "2":
-                if team == 1 { print("\nOK ✅, \(team1[1].typeCharacters) valided !");
+                if team == 1 { print("\nOK ✅, \(team1[1].typeCharacters) valided !"); Character.tresor()
                     if team1[1].weapon.givePoint == true { Magus.careTeam(team: team) }}
                 else {
-                    print("\nOK ✅, \(team2[1].typeCharacters) valided !");
+                    print("\nOK ✅, \(team2[1].typeCharacters) valided !"); Character.tresor()
                     if team2[1].weapon.givePoint == true { Magus.careTeam(team: team) }}
                 repeat {
                     if team == 1 { print("Which warrior you want fight ? 🥊🥊🥊\n")
@@ -115,10 +115,10 @@ class Player {
                 case 3: team2[1].attack(target: team1[2])
                 default: print("⁉️ Please, enter a value between 1 to 3.\n") }}
             case "3":
-                if team == 1 { print("\nOK ✅, \(team1[2].typeCharacters) valided !");
+                if team == 1 { print("\nOK ✅, \(team1[2].typeCharacters) valided !"); Character.tresor()
                     if team1[2].weapon.givePoint == true { Magus.careTeam(team: 1) }}
                 else {
-                    print("\nOK ✅, \(team2[2].typeCharacters) valied !");
+                    print("\nOK ✅, \(team2[2].typeCharacters) valied !"); Character.tresor()
                     if team2[2].weapon.givePoint == true { Magus.careTeam(team: 2) }}
                 repeat {
                     if team == 1 { print("Which warrior you want fight ? 🥊🥊🥊\n")

@@ -84,9 +84,13 @@ class Character {
             }
         }
     }
-    
-    
-    
+
+    // Function for extra
+    static func tresor() {
+        let tresorNumber = 3
+        if Int.random(in: 0...8) == tresorNumber { drug += 1; print("💉💉💉 You just took drug dose ! 💉💉💉")
+            print("Taking drug: \(drug) 💉") }}
+        
     // function "attack" allowing to get damage.
     func get(damage: Int) {
         self.health = self.health - damage
