@@ -26,7 +26,7 @@ class Game {
                 for character in team1 {
                     if character.typeCharacters == Chemist.typeCharacters {
                         character.weapon.damage = Int.random(in: 5...60) }}
-
+                checkHealthCharacter()
                 print ("You've done \(loop) loop(s) ⏱")
                 loop += 1
                 print("\n\(players[1].name), choose a warrior to fight \(players[0].name):\n")
@@ -35,12 +35,21 @@ class Game {
                 for character in team2 {
                     if character.typeCharacters == Chemist.typeCharacters {
                         character.weapon.damage = Int.random(in: 5...60) }}
-                
+                checkHealthCharacter()
                 print("You've done \(loop) loop(s) ⏱")
             }
         }
     }
-    
+// Function which allow to know the winner
+    func checkHealthCharacter() {
 
+        if team2[0].isDead == true && team2[1].isDead == true && team2[2].isDead == true {
+            print("\n✨✨✨ Congratulation 👑 \(players[0].name), you are the winner ! ✨✨✨\n Total loops: \(loop) loop(s) ⏱")
+            exit(9) }
+        else if team1[0].isDead == true && team1[1].isDead == true && team1[2].isDead == true {
+            print("\n✨✨✨ Congratulation 👑 \(players[1].name), you are the winner ! ✨✨✨\n Total loops: \(loop) ⏱")
+            exit(9)
+        }
+    }
 }
 
