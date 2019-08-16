@@ -8,17 +8,6 @@
 
 import Foundation
 
-var preCheckNameTeam = [String]()
-var team1 = [Character]()
-var team2 = [Character]()
-let myTeam = Player(name: "")
-var player1 = team1
-var player2 = team2
-let player = Player(name: "")
-var players = [Player]()
-var myTeamNumber = Game()
-var characterList = [Fighter(name: ""), Colossus(name: ""), Magus(name: ""), Dwarf(name: ""), Chemist(name: "")]
-
 class Character {
 
     let name: String
@@ -26,15 +15,13 @@ class Character {
     var weapon: Weapons
     var specialWeapon: specialWeapon
     var typeCharacters: String
-    var isDead: Bool
-    
-    init(name: String, health: Int, weapon: Weapons, typeCharacters: String, specialWeapon: specialWeapon, isDead: Bool) {
+
+    init(name: String, health: Int, weapon: Weapons, typeCharacters: String, specialWeapon: specialWeapon) {
         self.name = name
         self.health = health
         self.typeCharacters = typeCharacters
         self.weapon = weapon
         self.specialWeapon = specialWeapon
-        self.isDead = isDead
     }
     
     // Function which allow to presente available warrior
@@ -53,8 +40,8 @@ class Character {
             for character in team1 {
                 print("\(numberChoice)"); character.presenteCharacter()
                 numberChoice += 1
-                }
-             }
+            }
+        }
         else if team == 2 {
             var numberChoice = 1
             for character in team2 {
@@ -66,8 +53,10 @@ class Character {
     
     // Function which allow to check if name already exist
     static func nameAlreadyExist(nameWarrior: String, team: Int, cases: String) {
+        var preCheckNameTeam = [String]()
+        let player = Player(name: "")
         if preCheckNameTeam.contains(nameWarrior.uppercased()) {
-            print("\n❌ Sorry, name already used, choose another one. ❌\n"); myTeam.createTeam(team: teamNumber)
+            print("\n❌ Sorry, name already used, choose another one. ❌\n"); player.createTeam(team: team)
         } else {
             preCheckNameTeam.append(nameWarrior.uppercased())
             if team == 1 , cases == "1" {team1.append(Fighter(name: nameWarrior.uppercased())) }
@@ -85,12 +74,6 @@ class Character {
         }
     }
 
-    // Function for extra
-    static func tresor() {
-        let tresorNumber = 3
-        if Int.random(in: 0...8) == tresorNumber { drug += 1; print("💉💉💉 You just took drug dose ! 💉💉💉")
-            print("Taking drug: \(drug) 💉") }}
-        
     // function "attack" allowing to get damage.
     func get(damage: Int) {
         self.health = self.health - damage
@@ -98,20 +81,14 @@ class Character {
     
     // Function "attack" allowing to attack a character
     func attack(target: Character) {
-        if drug == 1 {
-            target.get(damage: self.specialWeapon.damage)
-            print("\n\(self.name) has attaked \(target.name) with \(self.specialWeapon.damage) of damage. 💉 \(target.name) has \(target.health) health 💥\n")
-            if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️"); target.weapon.damage = 0; target.isDead = true }}
-        else {
-            target.get(damage: self.weapon.damage)
-            print("\n\(self.name) has attaked \(target.name) with \(self.weapon.damage) of damage. \(target.name) has \(target.health) health 💥\n")
-            if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️"); target.weapon.damage = 0; target.isDead = true
-            }
-        }
+        target.get(damage: self.weapon.damage)
+        print("\n\(self.name) has attaked \(target.name) with \(self.weapon.damage) of damage. 💉 \(target.name) has \(target.health) health 💥\n")
+        if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️") }
     }
     
     // Function which allow to presente available warrior
     static func availableCharacter() {
+        let characterList = [Fighter(name: ""), Colossus(name: ""), Magus(name: ""), Dwarf(name: ""), Chemist(name: "")]
         var numberChoice = 1
         for character in characterList {
             print("\(numberChoice)"); character.presenteCharacter()

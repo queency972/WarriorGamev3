@@ -9,13 +9,12 @@
 import Foundation
 
 class Colossus: Character {
-    static var isDead = false
-    static let startLifePoint = 30
+    static let startLifePoint = 20
     static let typeCharacters = "Colossus"
     static let weapon = Hammer.damage
     static let description = "🔨 This character is a \(typeCharacters) with starting life points \(startLifePoint) and has a strenght of \(Hammer.damage) points of damage."
 
     init(name: String) {
-        super.init(name: name, health: Colossus.startLifePoint, weapon: Hammer(), typeCharacters: Colossus.typeCharacters, specialWeapon: Drug(), isDead: Colossus.isDead)
+        super.init(name: name, health: Colossus.startLifePoint, weapon: Hammer(), typeCharacters: Colossus.typeCharacters, specialWeapon: Drug())
     }
 }

@@ -9,13 +9,12 @@
 import Foundation
 
 class Fighter: Character {
-    static var isDead = false
-    static let startLifePoint = 30
+    static let startLifePoint = 20
     static let typeCharacters = "Fighter"
     static let weapon = Sword.damage
     static let description = "⚔️ This character is a \(typeCharacters) with starting life point at \(startLifePoint) and has a strenght of \(Sword.damage) points of damage."
     
     init(name: String) {
-        super.init(name: name, health: Fighter.startLifePoint, weapon: Sword(), typeCharacters: Fighter.typeCharacters, specialWeapon: Drug(), isDead: Fighter.isDead)
+        super.init(name: name, health: Fighter.startLifePoint, weapon: Sword(), typeCharacters: Fighter.typeCharacters, specialWeapon: Drug())
     }
 }

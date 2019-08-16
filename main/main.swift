@@ -8,5 +8,8 @@
 
 import Foundation
 
+var team1 = [Character]()
+var team2 = [Character]()
+
 let game = Game()
-game.starGame()
+game.startGame()
