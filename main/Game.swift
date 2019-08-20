@@ -42,10 +42,10 @@ class Game {
        }
     // Function which allow to know the winner
     func checkHealthCharacter() {
-        if player.myTeam.count <= 0 {
+        if players[1].myTeam.count <= 0 {
             print("\n✨✨✨ Congratulation 👑 \(players[0].name), you are the winner ! ✨✨✨\nTotal loops: \(loop) loop(s) ⏱")
             exit(9) }
-        else if player.myTeam.count <= 0 {
+        else if players[0].myTeam.count <= 0 {
             print("\n✨✨✨ Congratulation 👑 \(players[1].name), you are the winner ! ✨✨✨\nTotal loops: \(loop) ⏱")
             exit(9)
         }
