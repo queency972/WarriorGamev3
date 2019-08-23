@@ -32,8 +32,7 @@ class Game {
     // Allowing to return this function if conditions are true
     private func setNamePlayer() -> String {
         if let choice = readLine() {
-            if choice == "" { print("❌ Sorry you must enter a name. ❌ \n") }
-            else if choice.count < 3 { print("❌ Sorry enter a name more than 3 letters. ❌ \n")
+            if choice.count < 3 || choice.count == 0 { print("❌ Sorry enter a name more than 3 letters. ❌ \n")
                 return setNamePlayer()
             }
             return choice

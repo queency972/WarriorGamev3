@@ -23,7 +23,7 @@ class Player {
         if let myCharacter = readLine() {
             if Int(myCharacter)! <= self.myTeam.count {
                 self.myTeam[Int(myCharacter)!].health += MagicWand.addLifePoint
-                print("\n✅ You treated \(self.myTeam[Int(myCharacter)!].typeCharacters) ✅ ==> \(self.myTeam[Int(myCharacter)!].health)")
+                print("\n✅ You treated \(self.myTeam[Int(myCharacter)!].name) ✅ ==> \(self.myTeam[Int(myCharacter)!].health)")
             }
         }
     }
