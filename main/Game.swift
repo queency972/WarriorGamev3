@@ -11,43 +11,69 @@ class Game {
     var players = [Player]()
     var loop = 0
 
-    // Allowing o Start game
+    // Generate 2 Players.
     func startGame() {
-        for i in 1...2 {  print("Player \(i), enter your name:")
-            if let choice = readLine() {
-                if choice == "" { print("❌ Sorry you must enter a name. ❌ \n"); startGame() }
-                else if choice.count < 3 { print("❌ Sorry enter a name more than 3 letters. ❌ \n"); startGame()}
-                else {
-                    let player = Player(name: choice)
-                    game.players.append(Player(name: choice.uppercased()))
-                    for _ in 1...3 { player.createTeam(team: player) }; print("\nThanks \(player.name.uppercased()), your team is completed !")
+        repeat {
+            generateTeam()
+        } while (players.count < 2)
+        letsFight()
+    }
+    // Allowing to generate teams.
+    func generateTeam() {
+        print("Hello, player \(players.count + 1) please, enter your name")
+        let choice = setNamePlayer()
+        let player = Player(name: choice.uppercased())
+        repeat {
+            player.createTeam(team: player)
+            print("\nThanks \(player.name.uppercased()), your team is completed !")
+        } while(player.myTeam.count < 3)
+        self.players.append(player)
+    }
+    // Allowing to return this function if conditions are true
+    private func setNamePlayer() -> String {
+        if let choice = readLine() {
+            if choice == "" { print("❌ Sorry you must enter a name. ❌ \n") }
+            else if choice.count < 3 { print("❌ Sorry enter a name more than 3 letters. ❌ \n")
+                return setNamePlayer()
+            }
+            return choice
+        }
+        return setNamePlayer()
+    }
+
+    // Allowing to loop with each team.
+    func letsFight() {
+        let attackingPlayer = players[0]
+        let defendingPlayer = players[1]
+
+        while attackingPlayer.myTeam.count > 0 && defendingPlayer.myTeam.count > 0 {
+            print("\(attackingPlayer.name.uppercased()), choose a warrior to fight:\n")
+            for (_, _) in attackingPlayer.myTeam.enumerated() {
+            }
+            attackingPlayer.fight(against: defendingPlayer)
+            for character in attackingPlayer.myTeam {
+                if character.typeCharacters == Chemist.typeCharacters {
+                    character.weapon.damage = Int.random(in: 5...60)
                 }
             }
-        }
-
-        // Allowing to loop with each players and print player's team
-            for thePlayer in players {
-                print("\(thePlayer.name), choose a warrior to fight:\n")
-                for (index, character) in thePlayer.myTeam.enumerated() {
-                    if character.health == 0 {
-                        thePlayer.myTeam.remove(at: index)
-                        checkHealthCharacter() }}
-               thePlayer.fight(team: thePlayer)
-                for character in thePlayer.myTeam {
-                    if character.typeCharacters == Chemist.typeCharacters {
-                        character.weapon.damage = Int.random(in: 5...60) }}
-                print ("You've done \(loop) loop(s) ⏱")
-                loop += 1
+            if defendingPlayer.myTeam.count > 0 {
+                print("\(defendingPlayer.name), choose a warrior to fight:\n")
+                defendingPlayer.fight(against: attackingPlayer)
+                for (_, _) in defendingPlayer.myTeam.enumerated() {
+                }
             }
-       }
+            print ("\(loop) loop(s) ⏱")
+            loop += 1
+        }
+    }
+
     // Function which allow to know the winner
     func checkHealthCharacter() {
-        if players[1].myTeam.count <= 0 {
-            print("\n✨✨✨ Congratulation 👑 \(players[0].name), you are the winner ! ✨✨✨\nTotal loops: \(loop) loop(s) ⏱")
-            exit(9) }
-        else if players[0].myTeam.count <= 0 {
-            print("\n✨✨✨ Congratulation 👑 \(players[1].name), you are the winner ! ✨✨✨\nTotal loops: \(loop) ⏱")
-            exit(9)
+        if players[0].myTeam.count == 0 {
+            print("\n✨✨✨ Congratulation 👑 \(players[1].name), you are the winner ! ✨✨✨\nTotal loops: \(loop) loop(s) ⏱")
+        }
+        else if players[1].myTeam.count == 0 {
+            print("\n✨✨✨ Congratulation 👑 \(players[0].name), you are the winner ! ✨✨✨\nTotal loops: \(loop) ⏱")
         }
     }
 }

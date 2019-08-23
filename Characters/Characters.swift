@@ -35,10 +35,10 @@ class Character {
     // Function which allow to presente their own warriors
     static func presenteTeam(team: Player)  {
         var numberChoice = 1
-            for character in team.myTeam {
-                print("\(numberChoice)"); character.presenteCharacter()
-                numberChoice += 1
-            }
+        for character in team.myTeam {
+            print("\(numberChoice)"); character.presenteCharacter()
+            numberChoice += 1
+        }
     }
 
     // Function which allow to check if name already exist

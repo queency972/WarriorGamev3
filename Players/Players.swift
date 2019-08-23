@@ -14,6 +14,19 @@ class Player {
     init(name: String) {
         self.name = name }
 
+    // Function which allow Magus to treat his colleagues
+    func careTeam() {
+        print("⛑⛑⛑ Which warrior you want treat ? ⛑⛑⛑\n")
+        for (index, character) in self.myTeam.enumerated() {
+            print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
+        }
+        if let myCharacter = readLine() {
+            if Int(myCharacter)! <= self.myTeam.count {
+                self.myTeam[Int(myCharacter)!].health += MagicWand.addLifePoint
+                print("\n✅ You treated \(self.myTeam[Int(myCharacter)!].typeCharacters) ✅ ==> \(self.myTeam[Int(myCharacter)!].health)")
+            }
+        }
+    }
 
     // Function which allow to create team for each player
     func createTeam(team: Player) {
@@ -42,20 +55,38 @@ class Player {
     }
 
     // Function which allow to fight
-    func fight(team: Player) {
-            for (index, character) in team.myTeam.enumerated() {
-                print ("\(index)\nWarriors: \(character.name)\nHealth: \(character.health)\n")}
-            if let myCharacter = readLine() {
-                if Int(myCharacter)! <= team.myTeam.count {
-                    print("\n✅ You've chosen \(team.myTeam[Int(myCharacter)!].typeCharacters)")
-                    if team.myTeam[Int(myCharacter)!].weapon.givePoint == true { Magus.careTeam(team: team) }
-                    let tresorNumber = 3
-                    if Int.random(in: 0...8) == tresorNumber {team.myTeam[Int(myCharacter)!].weapon.damage = team.myTeam[Int(myCharacter)!].specialWeapon.damage }
-                    print("Now, choose a warrior to fight ! 🥊🥊🥊\n")
+    func fight(against team: Player) {
+        for (index, character) in self.myTeam.enumerated() {
+            print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
+        }
+        if let myCharacter = readLine() {
+            if Int(myCharacter)! <= self.myTeam.count {
+                print("\n✅ You've chosen \(self.myTeam[Int(myCharacter)!].typeCharacters)")
+                if self.myTeam[Int(myCharacter)!].weapon.givePoint == true { self.careTeam()
                 }
-                for (index, character) in team.myTeam.enumerated() {
-                    print ("\(index)\nWarriors: \(character.name)\nHealth: \(character.health)\n") }
-                if let p2Target = readLine() {
-                    if Int(p2Target)! <= team.myTeam.count{
-                        print("✅ You've chosen \(team.myTeam[Int(p2Target)!].typeCharacters)\n") }
-                    team.myTeam[Int(myCharacter)!].attack(target: team.myTeam[Int(p2Target)!]) }}}}
+                if self.myTeam[Int(myCharacter)!].typeCharacters != "Magus" {
+                    let tresorNumber = 3
+                    if Int.random(in: 0...8) == tresorNumber { print("💉💉💉 \(Drug.description) 💉💉💉 ")
+                        self.myTeam[Int(myCharacter)!].weapon.damage = self.myTeam[Int(myCharacter)!].specialWeapon.damage
+                    }
+                    print("Now, choose a warrior to fight ! 🥊🥊🥊\n")
+                    for (index, character) in team.myTeam.enumerated() {
+                        print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
+                    }
+                    if let target = readLine() {
+                        if Int(target)! <= team.myTeam.count{
+                            print("✅ You've chosen \(team.myTeam[Int(target)!].typeCharacters)\n")
+                        }
+                        self.myTeam[Int(myCharacter)!].attack(target: team.myTeam[Int(target)!])
+                        for (index, character) in team.myTeam.enumerated() {
+                            if character.health == 0 {
+                                team.myTeam.remove(at: index)
+                                game.checkHealthCharacter()
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

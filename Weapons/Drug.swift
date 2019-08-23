@@ -11,7 +11,7 @@ import Foundation
 class Drug: specialWeapon {
     static let type = "Drug"
     static let damage = 50
-    static let description = "This weapon is \(type) and has \(damage) of damage"
+    static let description = "📦 A new weapon is available for you ! it's a \(type) dose and give you \(damage) of damage"
     
     init() {
         super.init(damage: Drug.damage)
