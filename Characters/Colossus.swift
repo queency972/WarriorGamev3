@@ -12,7 +12,7 @@ class Colossus: Character {
     static let startLifePoint = 20
     static let typeCharacters = "Colossus"
     static let weapon = Hammer.damage
-    static let description = "🔨 This character is a \(typeCharacters) with starting life points \(startLifePoint) and has a strenght of \(Hammer.damage) points of damage."
+    static let description = "🔨 This character is a \(typeCharacters) with starting life points \(startLifePoint) and has a Strength of \(Hammer.damage) points of damage."
 
     init(name: String) {
         super.init(name: name, health: Colossus.startLifePoint, weapon: Hammer(), typeCharacters: Colossus.typeCharacters, specialWeapon: Drug())

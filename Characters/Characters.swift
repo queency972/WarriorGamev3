@@ -9,6 +9,7 @@ import Foundation
 
 class Character {
 
+    static var preCheckNameTeam = [String]()
     let name: String
     var health: Int
     var weapon: Weapons
@@ -29,7 +30,7 @@ class Character {
         print("Character:",self.typeCharacters)
         print("Weapon:", self.weapon.type)
         print("Health:", self.health)
-        print("Damage:", self.weapon.damage)
+        print("Strength:", self.weapon.damage)
         print("\n") }
     
     // Function which allow to presente their own warriors
@@ -42,39 +43,25 @@ class Character {
     }
 
     // Function which allow to check if name already exist
-    static func nameAlreadyExist(nameWarrior: String, team: Player, cases: String) {
-        var preCheckNameTeam = [String]()
+    static func nameAlreadyExist(nameWarrior: String) -> Bool {
         if preCheckNameTeam.contains(nameWarrior.uppercased()) {
-            print("\n❌ Sorry, name already used, choose another one. ❌\n"); team.createTeam(team: team)
+            print("\n❌ Sorry, name already used, choose another one. ❌\n")
+            return true
         } else {
-            preCheckNameTeam.append(nameWarrior.uppercased())
-            if  cases == "1"      {team.myTeam.append(Fighter(name: nameWarrior.uppercased())) }
-            else if  cases == "2" {team.myTeam.append(Colossus(name: nameWarrior.uppercased())) }
-            else if  cases == "3" {team.myTeam.append(Magus(name: nameWarrior.uppercased())) }
-            else if  cases == "4" {team.myTeam.append(Dwarf(name: nameWarrior.uppercased())) }
-            else if  cases == "5" {team.myTeam.append(Chemist(name: nameWarrior.uppercased())) }
+            return false
         }
     }
 
-    // function "attack" allowing to get damage.
-    func get(damage: Int) {
-        self.health = self.health - damage
-        if self.health < 0 { self.health = 0 }}
-
     // Function "attack" allowing to attack a character
     func attack(target: Character) {
-        target.get(damage: self.weapon.damage)
-        print("\n\(self.name) has attaked \(target.name) with \(self.weapon.damage) of damage. 💉 \(target.name) has \(target.health) health 💥\n")
-        if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️") }
-    }
-
-    // Function which allow to presente available warrior
-    static func availableCharacter() {
-        let characterList = [Fighter(name: ""), Colossus(name: ""), Magus(name: ""), Dwarf(name: ""), Chemist(name: "")]
-        var numberChoice = 1
-        for character in characterList {
-            print("\(numberChoice)"); character.presenteCharacter()
-            numberChoice += 1
+        if self.typeCharacters == "Magus" {
+            target.health = target.health + self.weapon.damage
+        }
+        else {
+            target.health = target.health - self.weapon.damage
+            if target.health < 0 { target.health = 0 }
+            print("\n\(self.name) has attaked \(target.name) with \(self.weapon.damage) of damage. 💉 \(target.name) has \(target.health) health 💥\n")
+            if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️") }
         }
     }
 }

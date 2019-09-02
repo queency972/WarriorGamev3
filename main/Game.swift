@@ -18,6 +18,7 @@ class Game {
         } while (players.count < 2)
         letsFight()
     }
+
     // Allowing to generate teams.
     func generateTeam() {
         print("Hello, player \(players.count + 1) please, enter your name")
@@ -25,10 +26,11 @@ class Game {
         let player = Player(name: choice.uppercased())
         repeat {
             player.createTeam(team: player)
-            print("\nThanks \(player.name.uppercased()), your team is completed !")
         } while(player.myTeam.count < 3)
         self.players.append(player)
+        print("\nThanks \(player.name.uppercased()), your team is completed !")
     }
+
     // Allowing to return this function if conditions are true
     private func setNamePlayer() -> String {
         if let choice = readLine() {
@@ -44,11 +46,8 @@ class Game {
     func letsFight() {
         let attackingPlayer = players[0]
         let defendingPlayer = players[1]
-
         while attackingPlayer.myTeam.count > 0 && defendingPlayer.myTeam.count > 0 {
             print("\(attackingPlayer.name.uppercased()), choose a warrior to fight:\n")
-            for (_, _) in attackingPlayer.myTeam.enumerated() {
-            }
             attackingPlayer.fight(against: defendingPlayer)
             for character in attackingPlayer.myTeam {
                 if character.typeCharacters == Chemist.typeCharacters {
@@ -58,10 +57,7 @@ class Game {
             if defendingPlayer.myTeam.count > 0 {
                 print("\(defendingPlayer.name), choose a warrior to fight:\n")
                 defendingPlayer.fight(against: attackingPlayer)
-                for (_, _) in defendingPlayer.myTeam.enumerated() {
-                }
             }
-            print ("\(loop) loop(s) ⏱")
             loop += 1
         }
     }

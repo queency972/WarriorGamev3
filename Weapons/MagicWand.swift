@@ -9,9 +9,8 @@
 import Foundation
 
 class MagicWand: Weapons {
-    static let addLifePoint = 5
     static let type = "MagicWand"
-    static let damage = 0
+    static let damage = 5
     static let description = "This weapon \(type) and has \(damage) of damage"
     
     init() {
