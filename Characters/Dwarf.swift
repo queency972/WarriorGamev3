@@ -15,6 +15,6 @@ class Dwarf: Character {
     static let description = "🗡 This character is a \(typeCharacters) with start life points \(startLifePoint) and has a Strength of \(Axe.damage) points of damage."
     
     init(name: String) {
-        super.init(name: name, health: Dwarf.startLifePoint, weapon: Axe(), typeCharacters: Dwarf.typeCharacters, specialWeapon: Drug())
+        super.init(name: name, health: Dwarf.startLifePoint, weapon: Axe(), typeCharacters: Dwarf.typeCharacters)
     }
 }

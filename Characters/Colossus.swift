@@ -15,6 +15,6 @@ class Colossus: Character {
     static let description = "🔨 This character is a \(typeCharacters) with starting life points \(startLifePoint) and has a Strength of \(Hammer.damage) points of damage."
 
     init(name: String) {
-        super.init(name: name, health: Colossus.startLifePoint, weapon: Hammer(), typeCharacters: Colossus.typeCharacters, specialWeapon: Drug())
+        super.init(name: name, health: Colossus.startLifePoint, weapon: Hammer(), typeCharacters: Colossus.typeCharacters)
     }
 }

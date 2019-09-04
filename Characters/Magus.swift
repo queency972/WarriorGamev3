@@ -15,34 +15,23 @@ class Magus: Character {
     static let description = "⛑ This character is a \(typeCharacters) with starting life point at \(startLifePoint) and \(MagicWand.damage) of damage but he's able to treat the rest of your team."
 
     init(name: String) {
-        super.init(name: name, health: Magus.startLifePoint, weapon: MagicWand(), typeCharacters: Magus.typeCharacters, specialWeapon: Drug())
+        super.init(name: name, health: Magus.startLifePoint, weapon: MagicWand(), typeCharacters: Magus.typeCharacters)
     }
 
-    static func care(team: Player, character: Character) {
+    func care(team: Player) {
         print("Which character you want treat ?\n")
         for (index, character) in team.myTeam.enumerated() {
             print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
         }
         if let target = readLine() {
-            if Int(target)! <= team.myTeam.count {
-                print("✅ You've chosen to treat \(team.myTeam[Int(target)!].name)")
-                character.attack(target: team.myTeam[Int(target)!])
-                print("\(team.myTeam[Int(target)!].name) has now \(team.myTeam[Int(target)!].health)\n")
+            if let choice = Int(target) {
+                if choice <= team.myTeam.count {
+                    let healedChar = team.myTeam[choice]
+                    print("✅ You've chosen to treat \(healedChar.name)")
+                    healedChar.health += self.weapon.damage
+                    print("\(healedChar.name) has now \(healedChar.health)\n")
+                }
             }
         }
     }
-
-    //override func attack(target: Character) {
-    
-    //   for (index, character) in self.myTeam.enumerated() {
-    //     print("Which character you want treat ?")
-    //          print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
-    //      if let target = readLine() {
-    //      if Int(target)! <= team.myTeam.count {
-    //      print("✅ You've chosen \(team.myTeam[Int(target)!].typeCharacters)\n")
-
-    // }
-    // }
-    // }
-    // }
 }

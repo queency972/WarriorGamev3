@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E90094E322BC342E00454DB5 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90094E222BC342E00454DB5 /* Drug.swift */; };
-		E90094E522BC42C100454DB5 /* SpecialWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90094E422BC42C100454DB5 /* SpecialWeapon.swift */; };
 		E90094E922C51B4600454DB5 /* Chemist.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90094E822C51B4600454DB5 /* Chemist.swift */; };
 		E90094EB22C51B9900454DB5 /* Poison.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90094EA22C51B9900454DB5 /* Poison.swift */; };
 		E92A98F8222AEA8500AEFC3E /* Characters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92A98F7222AEA8500AEFC3E /* Characters.swift */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		E90094E222BC342E00454DB5 /* Drug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
-		E90094E422BC42C100454DB5 /* SpecialWeapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialWeapon.swift; sourceTree = "<group>"; };
 		E90094E822C51B4600454DB5 /* Chemist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chemist.swift; sourceTree = "<group>"; };
 		E90094EA22C51B9900454DB5 /* Poison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poison.swift; sourceTree = "<group>"; };
 		E92A98F7222AEA8500AEFC3E /* Characters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characters.swift; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				E92A98FB222AEB3300AEFC3E /* Weapons.swift */,
-				E90094E422BC42C100454DB5 /* SpecialWeapon.swift */,
 				E92A98FE222AEBA500AEFC3E /* Sword.swift */,
 				E92A9900222AEBBE00AEFC3E /* MagicWand.swift */,
 				E92A9902222AEBD100AEFC3E /* Hammer.swift */,
@@ -209,7 +206,6 @@
 				E92A9903222AEBD100AEFC3E /* Hammer.swift in Sources */,
 				E90094EB22C51B9900454DB5 /* Poison.swift in Sources */,
 				E92A9908222AEC2600AEFC3E /* Fighter.swift in Sources */,
-				E90094E522BC42C100454DB5 /* SpecialWeapon.swift in Sources */,
 				E92A98F8222AEA8500AEFC3E /* Characters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

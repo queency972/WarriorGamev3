@@ -13,15 +13,13 @@ class Character {
     let name: String
     var health: Int
     var weapon: Weapons
-    var specialWeapon: specialWeapon
     var typeCharacters: String
 
-    init(name: String, health: Int, weapon: Weapons, typeCharacters: String, specialWeapon: specialWeapon) {
+    init(name: String, health: Int, weapon: Weapons, typeCharacters: String) {
         self.name = name
         self.health = health
         self.typeCharacters = typeCharacters
         self.weapon = weapon
-        self.specialWeapon = specialWeapon
     }
 
     // Function which allow to presente available warrior
@@ -54,14 +52,9 @@ class Character {
 
     // Function "attack" allowing to attack a character
     func attack(target: Character) {
-        if self.typeCharacters == "Magus" {
-            target.health = target.health + self.weapon.damage
-        }
-        else {
-            target.health = target.health - self.weapon.damage
-            if target.health < 0 { target.health = 0 }
-            print("\n\(self.name) has attaked \(target.name) with \(self.weapon.damage) of damage. 💉 \(target.name) has \(target.health) health 💥\n")
-            if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️") }
-        }
+        target.health = target.health - self.weapon.damage
+        if target.health < 0 { target.health = 0 }
+        print("\n\(self.name) has attaked \(target.name) with \(self.weapon.damage) of damage. \(target.name) has \(target.health) health 💥\n")
+        if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️") }
     }
 }

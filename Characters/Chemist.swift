@@ -15,6 +15,6 @@ class Chemist: Character {
     static let description = "🛩 This character is a \(typeCharacters) with starting life points \(startLifePoint) and has a random Strength of X points of damage."
     
     init(name: String) {
-        super.init(name: name, health: Chemist.startLifePoint, weapon: Poison(), typeCharacters: Chemist.typeCharacters, specialWeapon: Drug())
+        super.init(name: name, health: Chemist.startLifePoint, weapon: Poison(), typeCharacters: Chemist.typeCharacters)
     }
 }

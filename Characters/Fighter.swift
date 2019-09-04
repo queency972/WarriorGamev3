@@ -15,6 +15,6 @@ class Fighter: Character {
     static let description = "⚔️ This character is a \(typeCharacters) with starting life point at \(startLifePoint) and has a strength of \(Sword.damage) points of damage."
     
     init(name: String) {
-        super.init(name: name, health: Fighter.startLifePoint, weapon: Sword(), typeCharacters: Fighter.typeCharacters, specialWeapon: Drug())
+        super.init(name: name, health: Fighter.startLifePoint, weapon: Sword(), typeCharacters: Fighter.typeCharacters)
     }
 }
