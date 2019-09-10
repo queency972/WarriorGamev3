@@ -12,10 +12,10 @@ class Character {
     static var preCheckNameTeam = [String]()
     let name: String
     var health: Int
-    var weapon: Weapons
+    var weapon: Weapon
     var typeCharacters: String
 
-    init(name: String, health: Int, weapon: Weapons, typeCharacters: String) {
+    init(name: String, health: Int, weapon: Weapon, typeCharacters: String) {
         self.name = name
         self.health = health
         self.typeCharacters = typeCharacters
@@ -53,7 +53,9 @@ class Character {
     // Function "attack" allowing to attack a character
     func attack(target: Character) {
         target.health = target.health - self.weapon.damage
-        if target.health < 0 { target.health = 0 }
+        if target.health < 0 {
+            target.health = 0
+        }
         print("\n\(self.name) has attaked \(target.name) with \(self.weapon.damage) of damage. \(target.name) has \(target.health) health 💥\n")
         if target.health == 0 { print("\(target.name) is dead ! ⚰️⚰️⚰️") }
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Weapons {
+class Weapon {
     var damage: Int
     var givePoint: Bool
     var type: String

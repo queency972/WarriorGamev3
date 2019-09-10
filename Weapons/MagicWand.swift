@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MagicWand: Weapons {
+class MagicWand: Weapon {
     static let type = "MagicWand"
     static let damage = 5
     static let description = "This weapon \(type) and has \(damage) of damage"

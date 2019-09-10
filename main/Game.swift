@@ -19,7 +19,7 @@ class Game {
         letsFight()
     }
 
-    // Allowing to generate teams.
+    // Allowing to generate team.
     func generateTeam() {
         print("Hello, player \(players.count + 1) please, enter your name")
         let choice = setNamePlayer()
@@ -31,7 +31,7 @@ class Game {
         print("\nThanks \(player.name.uppercased()), your team is completed !")
     }
 
-    // Allowing to return this function if conditions are true
+    // Allowing to return this function if condition is true
     private func setNamePlayer() -> String {
         if let choice = readLine() {
             if choice.count < 3 { print("❌ Sorry enter a name more than 3 letters. ❌ \n")
@@ -54,6 +54,8 @@ class Game {
                     character.weapon.damage = Int.random(in: 5...60)
                 }
             }
+
+            // This condition allows to play the second player if he's alive
             if defendingPlayer.myTeam.count > 0 {
                 print("\(defendingPlayer.name), choose a warrior to fight:\n")
                 defendingPlayer.fight(against: attackingPlayer)

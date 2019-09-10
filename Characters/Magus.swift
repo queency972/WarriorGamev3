@@ -18,20 +18,9 @@ class Magus: Character {
         super.init(name: name, health: Magus.startLifePoint, weapon: MagicWand(), typeCharacters: Magus.typeCharacters)
     }
 
-    func care(team: Player) {
-        print("Which character you want treat ?\n")
-        for (index, character) in team.myTeam.enumerated() {
-            print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
-        }
-        if let target = readLine() {
-            if let choice = Int(target) {
-                if choice <= team.myTeam.count {
-                    let healedChar = team.myTeam[choice]
-                    print("✅ You've chosen to treat \(healedChar.name)")
-                    healedChar.health += self.weapon.damage
-                    print("\(healedChar.name) has now \(healedChar.health)\n")
-                }
-            }
-        }
+    func care(target: Character) {
+        print("✅ You've chosen to treat \(target.name)")
+        target.health += self.weapon.damage
+        print("\(target.name) has now \(target.health)\n")
     }
 }

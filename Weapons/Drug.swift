@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Drug: Weapons {
+class Drug: Weapon {
     
     init() {
         super.init(damage: 50, givePoint: false, type: "Drug")

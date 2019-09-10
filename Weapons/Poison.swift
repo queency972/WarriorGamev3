@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Poison: Weapons {
+class Poison: Weapon {
     static let type = "Poison"
     static var damage = Int.random(in: 5...70)
     static let description = "This weapon \(type) and has now \(Poison.damage) !"

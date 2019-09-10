@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Hammer: Weapons {
+class Hammer: Weapon {
     static let type = "Hammer"
     static var damage = 8
     static let description = "This weapon \(type) and has \(damage) of damage"

@@ -37,42 +37,25 @@ class Player {
 
     // Function which allow to fight
     func fight(against team: Player) {
-        for (index, character) in self.myTeam.enumerated() {
-            print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
+        print("Select a your character:\n")
+        let myCharacter = selectCharacter(team: self.myTeam)
+        if let magus = myCharacter as? Magus {
+            print("🚒🚒🚒 Select character to treat 🚒🚒🚒:\n")
+            let healdChar = selectCharacter(team: myTeam)
+            magus.care(target: healdChar)
         }
-        if let myCharacter = readLine() {
-            if let choice = Int(myCharacter) {
-                if choice <= self.myTeam.count {
-                    let selectedCharacter = self.myTeam[choice]
-                    print("\n✅ You've chosen \(selectedCharacter.typeCharacters)")
-                    if let magus = selectedCharacter as? Magus {
-                        magus.care(team: self)
-                    }
-                    else {
-                        let tresorNumber = 3
-                        if Int.random(in: 0...3) == tresorNumber { print("💉💉💉 Your character found a special weapon and dropped his first one and now causes \(selectedCharacter.weapon.damage) due to drug effets 💉💉💉")
-                            selectedCharacter.weapon = Drug()
-                        }
-                        print("Now, choose a warrior to fight ! 🥊🥊🥊\n")
-                        for (index, character) in team.myTeam.enumerated() {
-                            print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
-                        }
-                        if let target = readLine() {
-                            if let targetChoice = Int(target) {
-                                if targetChoice <= team.myTeam.count {
-                                    let selectedTarget = team.myTeam[targetChoice]
-                                    print("✅ You've chosen \(selectedTarget.typeCharacters)\n")
-                                }
-                                self.myTeam[Int(myCharacter)!].attack(target: team.myTeam[targetChoice])
-                                for (index, character) in team.myTeam.enumerated() {
-                                    if character.health == 0 {
-                                        team.myTeam.remove(at: index)
-                                        game.checkHealthCharacter()
-                                    }
-                                }
-                            }
-                        }
-                    }
+        else {
+            let tresorNumber = 3
+            if Int.random(in: 0...3) == tresorNumber { print("💉💉💉 Your character found a special weapon and dropped his first one and now causes \(myCharacter.weapon.damage) due to drug effets 💉💉💉")
+                myCharacter.weapon = Drug()
+            }
+            print("Select a your opponent:\n")
+            let target = selectCharacter(team: team.myTeam)
+            myCharacter.attack(target: target)
+            for (index, character) in team.myTeam.enumerated() {
+                if character.health == 0 {
+                    team.myTeam.remove(at: index)
+                    game.checkHealthCharacter()
                 }
             }
         }
@@ -88,6 +71,7 @@ class Player {
         }
     }
 
+    // Function which allow to create Character
     private func createCharacter(type: String) {
         if let nameWarrior = readLine() {
             let nameExist = Character.nameAlreadyExist(nameWarrior: nameWarrior.uppercased())
@@ -108,5 +92,23 @@ class Player {
                 }
             }
         }
+    }
+
+    // Function which allow to get user choice safly
+    func selectCharacter(team: [Character]) ->  Character {
+        for (index, character) in team.enumerated() {
+            print ("\(index)\nWarriors: \(character.name)\nType: \(character.typeCharacters)\nHealth: \(character.health)\n")
+        }
+        if let myCharacter = readLine() {
+            if let choice = Int(myCharacter) {
+                if choice <= team.count {
+                    let selectedCharacter = team[choice]
+                    print("\n✅ You've chosen \(selectedCharacter.typeCharacters)")
+                    return selectedCharacter
+                }
+            }
+        }
+        print("Please, enter a number between 0 and \(team.count)")
+        return selectCharacter(team: team)
     }
 }
