@@ -37,7 +37,6 @@ class Player {
 
     // Function which allow to fight
     func fight(against team: Player) {
-        print("Select a your character:\n")
         let myCharacter = selectCharacter(team: self.myTeam)
         if let magus = myCharacter as? Magus {
             print("🚒🚒🚒 Select character to treat 🚒🚒🚒:\n")
@@ -46,10 +45,10 @@ class Player {
         }
         else {
             let tresorNumber = 3
-            if Int.random(in: 0...3) == tresorNumber { print("💉💉💉 Your character found a special weapon and dropped his first one and now causes \(myCharacter.weapon.damage) due to drug effets 💉💉💉")
+            if Int.random(in: 0...3) == tresorNumber { print("💉💉💉 \(self.name) !!! Your character found a special weapon and dropped his first one and now causes \(myCharacter.weapon.damage) due to drug effets 💉💉💉")
                 myCharacter.weapon = Drug()
             }
-            print("Select a your opponent:\n")
+            print("\(self.name), select a your opponent:\n")
             let target = selectCharacter(team: team.myTeam)
             myCharacter.attack(target: target)
             for (index, character) in team.myTeam.enumerated() {

@@ -19,8 +19,7 @@ class Magus: Character {
     }
 
     func care(target: Character) {
-        print("✅ You've chosen to treat \(target.name)")
         target.health += self.weapon.damage
-        print("\(target.name) has now \(target.health)\n")
+        print("✅ You've chosen to treat \(target.name), he has now \(target.health) health\n")
     }
 }

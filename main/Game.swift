@@ -28,7 +28,7 @@ class Game {
             player.createTeam(team: player)
         } while(player.myTeam.count < 3)
         self.players.append(player)
-        print("\nThanks \(player.name.uppercased()), your team is completed !")
+        print("\nThanks \(player.name.uppercased()), your team is completed !\n")
     }
 
     // Allowing to return this function if condition is true
