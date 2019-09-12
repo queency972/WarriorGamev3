@@ -9,7 +9,7 @@
 import Foundation
 
 class Chemist: Character {
-    static let startLifePoint = 20
+    static let startLifePoint = 100
     static let typeCharacters = "Chemist"
     static let weapon = Poison.damage
     static let description = "🛩 This character is a \(typeCharacters) with starting life points \(startLifePoint) and has a random Strength of X points of damage."

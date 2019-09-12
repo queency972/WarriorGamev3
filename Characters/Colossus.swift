@@ -9,7 +9,7 @@
 import Foundation
 
 class Colossus: Character {
-    static let startLifePoint = 20
+    static let startLifePoint = 120
     static let typeCharacters = "Colossus"
     static let weapon = Hammer.damage
     static let description = "🔨 This character is a \(typeCharacters) with starting life points \(startLifePoint) and has a Strength of \(Hammer.damage) points of damage."

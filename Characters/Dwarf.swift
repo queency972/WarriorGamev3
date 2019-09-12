@@ -9,7 +9,7 @@
 import Foundation
 
 class Dwarf: Character {
-    static let startLifePoint = 20
+    static let startLifePoint = 80
     static let typeCharacters = "Dwarf"
     static let weapon = Axe.damage
     static let description = "🗡 This character is a \(typeCharacters) with start life points \(startLifePoint) and has a Strength of \(Axe.damage) points of damage."

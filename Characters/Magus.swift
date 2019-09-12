@@ -9,7 +9,7 @@ import Foundation
 
 class Magus: Character {
 
-    static let startLifePoint = 20
+    static let startLifePoint = 70
     static let typeCharacters = "Magus"
     static let weapon = MagicWand.damage
     static let description = "⛑ This character is a \(typeCharacters) with starting life point at \(startLifePoint) and \(MagicWand.damage) of damage but he's able to treat the rest of your team."
