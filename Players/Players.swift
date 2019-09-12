@@ -40,7 +40,7 @@ class Player {
         let myCharacter = selectCharacter(team: self.myTeam)
         if let magus = myCharacter as? Magus {
             print("🚒🚒🚒 Select character to treat 🚒🚒🚒:\n")
-            let healdChar = selectCharacter(team: myTeam)
+            let healdChar = selectCharacter(team: self.myTeam)
             magus.care(target: healdChar)
         }
         else {
@@ -48,7 +48,7 @@ class Player {
             if Int.random(in: 0...3) == tresorNumber { print("💉💉💉 \(self.name) !!! Your character found a special weapon and dropped his first one and now causes \(myCharacter.weapon.damage) due to drug effets 💉💉💉")
                 myCharacter.weapon = Drug()
             }
-            print("\(self.name), select a your opponent:\n")
+            print("\(self.name), select your opponent:\n")
             let target = selectCharacter(team: team.myTeam)
             myCharacter.attack(target: target)
             for (index, character) in team.myTeam.enumerated() {
