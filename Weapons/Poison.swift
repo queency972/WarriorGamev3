@@ -14,6 +14,6 @@ class Poison: Weapon {
     static let description = "This weapon \(type) and has now \(Poison.damage) !"
    
     init() {
-        super.init(damage: Poison.damage, givePoint: false, type: Poison.type)
+        super.init(damage: Poison.damage, type: Poison.type)
     }
 }

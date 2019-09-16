@@ -45,7 +45,7 @@ class Player {
         }
         else {
             let tresorNumber = 3
-            if Int.random(in: 0...3) == tresorNumber { print("💉💉💉 \(self.name) !!! Your character found a special weapon and dropped his first one and now causes \(myCharacter.weapon.damage) due to drug effets 💉💉💉")
+            if Int.random(in: 0...3) == tresorNumber { print("💉💉💉 \(self.name) !!! Your character found a special weapon and dropped his first one and now causes \(myCharacter.weapon.damage) due to drug effects 💉💉💉")
                 myCharacter.weapon = Drug()
             }
             print("\(self.name), select your opponent:\n")

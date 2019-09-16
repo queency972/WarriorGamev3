@@ -21,7 +21,7 @@ class Game {
 
     // Allowing to generate team.
     func generateTeam() {
-        print("Hello, player \(players.count + 1) please, enter your name")
+        print("Hello player \(players.count + 1) enter your name:")
         let choice = setNamePlayer()
         let player = Player(name: choice.uppercased())
         repeat {

@@ -14,6 +14,6 @@ class MagicWand: Weapon {
     static let description = "This weapon \(type) and has \(damage) of damage"
     
     init() {
-        super.init(damage: MagicWand.damage, givePoint: true, type: MagicWand.type)
+        super.init(damage: MagicWand.damage, type: MagicWand.type)
     }
 }

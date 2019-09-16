@@ -11,8 +11,7 @@ import Foundation
 class Drug: Weapon {
     
     init() {
-        super.init(damage: 50, givePoint: false, type: "Drug")
-        self.givePoint = false
+        super.init(damage: 50, type: "Drug")
         self.type = "Drug"
     }
 }

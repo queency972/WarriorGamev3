@@ -10,12 +10,10 @@ import Foundation
 
 class Weapon {
     var damage: Int
-    var givePoint: Bool
     var type: String
     
-    init(damage: Int, givePoint: Bool, type: String) {
+    init(damage: Int, type: String) {
         self.damage = damage
-        self.givePoint = givePoint
         self.type = type
     }
 }
